@@ -1,0 +1,8 @@
+{
+    "get-user": "Get User Data",
+    "upd-user": "Update User Data",
+    "add-hp": "Add Phone Number",
+    "verif-hp": "Phone Verification",
+    "address": "Manage User Address",
+    "del-user": "Delete User"
+}

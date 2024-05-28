@@ -1,0 +1,7 @@
+{
+    "get-all-prod": "Get All Product",
+    "serach-prod": "Search product",
+    "get-prod": "Get Product by Id",
+    "sort-prod": "Get All Product Sorted",
+    "get-prod-ctg": "Get All Product by Category"
+}

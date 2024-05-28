@@ -1,0 +1,7 @@
+{
+    "add-rev": "Add Review",
+    "get-usr-rev": "Get User Review by Id",
+    "get-all-usr-rev": "Get All User Review by Email",
+    "upd-rev": "Update User Review",
+    "del-rev": "Delete User Review"
+}

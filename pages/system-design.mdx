@@ -1,0 +1,28 @@
+# System Architecture
+
+GreenBasket is an e-commerce application built with a monolithic architectural approach. 
+In this architecture, all components are integrated in one common base code. 
+Here are the main components and their associated features. GreenBasket uses the Go programming language (Golang) with the Gin framework. 
+Go is an efficient, readable language, and suitable for web application development and using MongoDB as a database. 
+MongoDB is a flexible NoSQL database suitable for applications with diverse data schemas. 
+
+The external service used, Midtrans, is used as a payment gateway to process payment transactions. 
+This service ensures safety and reliability during the payment process.  
+GreenBasket implements OAuth2 authentication from Google and Facebook. Users can log in with their Google or Facebook accounts. 
+There are two user roles: seller and customer. Sellers can manage products, orders, inventory, and view sales reports. 
+Customers can view the product catalog, order products, leave reviews, and choose payment methods.
+
+With a monolithic architecture, GreenBasket has a unified unit, facilitating development and maintenance. 
+All components work together to provide a good experience for users.
+
+
+## Seller System Design
+
+<a href="/seller-flow.png" target="_blank">
+  <img src="/seller-flow.png" alt="Seller System Design" width="500"/>
+</a>
+
+## User System Design
+<a href="/user-flow.png" target="_blank">
+  <img src="/user-flow.png" alt="User System Design" width="500"/>
+</a>

@@ -1,15 +1,44 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
+  "-- Getting Started": {
+    "type": "separator",
+    "title": "Getting Started"
   },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/shuding_",
-    "newWindow": true
-  }
+  "index": "Introduction",
+  "-- system": {
+    "type": "separator",
+    "title": "System Design"
+  },
+  "system-design": "Architecture",
+  "workflow": "Workflow",
+  "schema": "Schema", 
+  "-- api": {
+    "type": "separator",
+    "title": "API"
+  },
+  "install": "Installation",
+  "-- seller": {
+    "type": "separator",
+    "title": "Sellers API"
+  },
+  "auth-seller": "Authentication",
+  "seller": "Sellers",
+  "store": "Stores",
+  "product-seller": "Products",
+  "seller-order": "Seller Orders",
+  "sales-report": "Sales Report",
+  "seller-review": "Seller Review",
+  "notification-seller": "Notifications",
+  "-- user": {
+    "type": "separator",
+    "title": "Users API"
+  },
+  "auth-user": "Authentication",
+  "user": "Users",
+  "cart": "Cart",
+  "product-user": "Products",
+  "store-user": "Stores",
+  "order": "Orders",
+  "payment": "Payments",
+  "review": "Reviews",
+  "notification-user": "Notifications"
 }

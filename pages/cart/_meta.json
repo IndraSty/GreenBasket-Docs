@@ -1,0 +1,7 @@
+{
+    "add-item": "Add Product to Cart",
+    "get-cart": "Get User Cart Data",
+    "get-all-item": "Get All Product in Cart",
+    "upd-item": "Update Product In Cart",
+    "del-item": "Remove Product In Cart"
+}

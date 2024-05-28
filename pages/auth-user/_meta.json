@@ -1,0 +1,8 @@
+{
+    "google": "Login With Google",
+    "fb": "Login With Facebook",
+    "register": "Register User",
+    "login": "Login With Email & Password",
+    "verif-email": "Email Verification",
+    "logout": "Logout"
+}

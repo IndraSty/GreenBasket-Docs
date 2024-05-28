@@ -1,0 +1,10 @@
+{
+    "add-prod": "Add Product",
+    "get-prod": "Get Data Product",
+    "get-all-prod": "Get All Data Product",
+    "get-all-prod-by-ctgry": "Get All Data Product By Category",
+    "search-prod": "Search Product",
+    "sort-prod": "Sort Product",
+    "update-prod": "Update Data Product",
+    "del-prod": "Remove Product"
+}

@@ -1,0 +1,7 @@
+{
+    "create-order": "Create User Order",
+    "get-order": "Get Order Data by Id",
+    "get-all-order": "Get All Order Data",
+    "finish-order": "Finish Order",
+    "cnc-order": "Cancel Order"
+}

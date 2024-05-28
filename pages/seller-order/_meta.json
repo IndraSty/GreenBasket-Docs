@@ -1,0 +1,6 @@
+{
+    "get-order": "Get Seller Order",
+    "get-all-order": "Get All Seller Order",
+    "upd-status-order": "Update Status Seller Order",
+    "ccl-order": "Cancel Order"
+}

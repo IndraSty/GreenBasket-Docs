@@ -1,0 +1,8 @@
+{
+    "create-store": "Create Store",
+    "detail-store": "Get Detail Store",
+    "update-store": "Update Data Store",
+    "remove-store": "Remove Store",
+    "address": "Manage Store Address",
+    "contact": "Manage Store Contact"
+}

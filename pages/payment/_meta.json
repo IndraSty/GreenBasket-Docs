@@ -1,0 +1,4 @@
+{
+    "handler": "Payment Handler",
+    "init-payment": "Initialize Payment"
+}
