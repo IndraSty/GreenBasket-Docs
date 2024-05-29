@@ -1,1 +1,33 @@
 # Register Seller
+
+Create Seller Data
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+POST /api/sellers/signup
+```
+
+### Request Body
+```json filename="Request Body"
+{
+    "first_name": "firsName",
+    "last_name": "lastName",
+    "email": "example@gmail.com",
+    "password": "YourPassword",
+    "phone": "081234556776"
+}
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+
+#### 400 (bad request)
+
+#### 500 (server error)
