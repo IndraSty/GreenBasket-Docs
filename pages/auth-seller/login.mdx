@@ -1,0 +1,30 @@
+# Login Seller
+
+Authenticate Seller by Email and Password
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+POST /api/sellers/login
+```
+
+### Request Body
+```json filename="Request Body"
+{
+    "email": "example@gmail.com",
+    "password": "YourPassword",
+}
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+
+#### 400 (bad request)
+
+#### 500 (server error)
