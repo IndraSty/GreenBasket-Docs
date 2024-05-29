@@ -16,7 +16,7 @@ POST /api/sellers/login
 ```json filename="Request Body"
 {
     "email": "example@gmail.com",
-    "password": "YourPassword",
+    "password": "YourPassword_123",
 }
 ```
 
@@ -24,7 +24,29 @@ POST /api/sellers/login
 You will get responses like this:
 
 #### 200 (success)
+```json filename="Response Body"
+{
+    "access_token": "unique-string-for-access-token"
+}
+```
 
 #### 400 (bad request)
+```json filename="Response Body"
+{
+    "error": "email or password incorrect"
+}
+```
+
+#### 400 (bad request - email not exist)
+```json filename="Response Body"
+{
+    "error": "email doesn't exist"
+}
+```
 
 #### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
