@@ -1,0 +1,65 @@
+# Get Seller by Email
+Fetch Seller data by Seller email
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current
+```
+
+```md filename="Header"
+Authorization: Bearer access_token
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "data": {
+        "ID": "6657998e3434aea83471a797",
+        "first_name": "firsName",
+        "last_name": "lastName",
+        "email": "example@gmail.com",
+        "password": "$2a$14$clFCbdfYCq6QUr6ZXEP6b.y1kJNU7MCqrfwUiE/HbxH9VAa6kcyfC",
+        "image_url": "",
+        "phone": "081234556776",
+        "refresh_token": "",
+        "role": "Seller",
+        "created_at": "2024-05-29T21:09:34.945Z",
+        "updated_at": "2024-05-29T21:09:34.945Z",
+        "email_verified": false,
+        "phone_verified": false,
+        "seller_id": "6657998e3434aea83471a797",
+        "store_id": "",
+        "address": null
+    },
+    "message": "Fetch Seller Successfully"
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
