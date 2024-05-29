@@ -18,7 +18,7 @@ POST /api/sellers/signup
     "first_name": "firsName",
     "last_name": "lastName",
     "email": "example@gmail.com",
-    "password": "YourPassword",
+    "password": "YourPassword_123",
     "phone": "081234556776"
 }
 ```
@@ -26,8 +26,44 @@ POST /api/sellers/signup
 ### Responses
 You will get responses like this:
 
-#### 200 (success)
+#### 201 (created)
 
-#### 400 (bad request)
+```json filename="Response Body"
+{
+    "result": {
+        "insert_id": "665794710741c628c857eda6",
+        "message": [
+            "OTP Has been send on Your email",
+            "Seller created successfully!"
+        ]
+    }
+}
+```
+
+#### 400 (bad request - invalid email)
+```json filename="Response Body"
+{
+    "error": "Invalid request bodyemail: examplegmail.com does not validate as email"
+}
+```
+
+#### 400 (bad request - email exist)
+```json filename="Response Body"
+{
+    "error": "email already registered"
+}
+```
+
+#### 400 (bad request - phone exist)
+```json filename="Response Body"
+{
+    "error": "phone already registered"
+}
+```
 
 #### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
