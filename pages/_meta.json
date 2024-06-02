@@ -27,7 +27,6 @@
   "seller-order": "Seller Orders",
   "sales-report": "Sales Report",
   "seller-review": "Seller Review",
-  "notification-seller": "Notifications",
   "-- user": {
     "type": "separator",
     "title": "Users API"
@@ -39,6 +38,5 @@
   "store-user": "Stores",
   "order": "Orders",
   "payment": "Payments",
-  "review": "Reviews",
-  "notification-user": "Notifications"
+  "review": "Reviews"
 }
