@@ -1,0 +1,23 @@
+# Login With Facebook
+
+Login using your Facebook account
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+DELETE /api/auth/{provider}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+### Route Param
+
+`provider` : string (required, `facebook`)
+
+### Responses
+You will redirect to facebook sign in, and then You can choose Your facebook account to login/signup
