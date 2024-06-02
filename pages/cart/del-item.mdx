@@ -1,0 +1,76 @@
+# Remove Product In Cart
+
+Remove product item in user cart by product id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+DELETE /api/users/current/cart-item
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Query Param
+
+`product_id` : string (required)
+
+### Request Body
+```json filename="Request Body"
+{
+    "quantity": "2",
+    "selected": false
+}
+```
+
+### Responses
+
+You will get example responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Successfully remove product from the cart",
+}
+```
+
+#### 400 (bad request)
+```json filename="Response Body"
+{
+    "error": "quantity cannot be less than 0"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `user cart` data
+
+```json filename="Response Body"
+{
+  "error": "failed check user cart"
+}
+```
+
+#### 500 (server error - failed)
+
+If something went wrong while remove product from user `cart`
+
+```json filename="Response Body"
+{
+  "error": "failed to remove item from user cart"
+}
+```
