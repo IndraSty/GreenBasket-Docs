@@ -1,0 +1,53 @@
+# OTP Verification
+
+OTP verify for email verification
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+POST /api/users/otp
+```
+
+### Request Body
+```json filename="Request Body"
+{
+    "user_id": "unique-user-id",
+    "otp": "0000",
+}
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Validate OTP successfully!"
+}
+```
+
+#### 400 (bad request)
+```json filename="Response Body"
+{
+    "error": "otp code is invalid"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
+
+#### 500 (server error)
+If something went wrong while update `email_verified` in database
+```json filename="Response Body"
+{
+    "error": "failed to update email verified"
+}
+```
