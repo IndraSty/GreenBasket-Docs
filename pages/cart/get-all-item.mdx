@@ -1,0 +1,85 @@
+# Get All Product in Cart
+
+Fetch all product item in user cart
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/users/current/cart-items
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+
+You will get example responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Successfully Fetch All cart items",
+  "data": [
+    {
+      "product_id": "WH123456",
+      "product_name": "Wireless Headphones",
+      "product_image": [
+        "https://example.com/images/product1.jpg",
+        "https://example.com/images/product2.jpg"
+      ],
+      "store_name": "TechStore",
+      "quantity": 1,
+      "added_at": "2024-05-28T14:30:00.000Z",
+      "selected": true,
+      "price": 99.99
+    },
+    {
+      "product_id": "SW789012",
+      "product_name": "Smartwatch",
+      "product_image": [
+        "https://example.com/images/product3.jpg",
+        "https://example.com/images/product4.jpg"
+      ],
+      "store_name": "GadgetHub",
+      "quantity": 2,
+      "added_at": "2024-05-28T15:00:00.000Z",
+      "selected": false,
+      "price": 149.99
+    },
+  ]
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `user cart` data
+
+```json filename="Response Body"
+{
+  "error": "failed check user cart"
+}
+```
+
+#### 500 (server error - failed)
+
+If something went wrong while get user `cart` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get all item in user cart"
+}
+```
