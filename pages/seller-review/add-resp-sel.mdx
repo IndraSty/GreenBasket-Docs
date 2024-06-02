@@ -1,0 +1,100 @@
+# Add Update Response Seller
+
+Add response on the review by the customer
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/reviews/{review_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`review_id`: string (required)
+
+### Request Body
+```json filename="Request Body"
+{
+    "seller_response": "example-seller-response"
+}
+```
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Add Seller Response Successfully",
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 403 (forbidden)
+
+```json filename="Response Body"
+{
+  "error": "you do not have the right to provide a response to this review"
+}
+```
+
+#### 404 (not found)
+
+```json filename="Response Body"
+{
+  "error": "review not found with this id"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If seller has added a `response` on the `review`
+
+```json filename="Response Body"
+{
+  "error": "this review already has a seller response"
+}
+```
+
+#### 500 (server error - failed)
+
+If something went wrong while update `review` data on `database`
+
+```json filename="Response Body"
+{
+  "error": "failed to update the seller response in review"
+}
+```

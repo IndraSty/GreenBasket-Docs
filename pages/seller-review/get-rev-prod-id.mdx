@@ -1,0 +1,107 @@
+# Get All Review By Product Id
+
+Get all the product review by id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/reviews/product
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Query Param
+
+`product_id`: string (required)
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Get Review By Product Id Successfully",
+  "result": {
+    [
+        {
+            "review_id": "REV123456",
+            "product_id": "WH123456",
+            "email": "user1@example.com",
+            "rating": 4.5,
+            "review": "example-user-review.",
+            "reviewed_at": "2024-05-28T14:30:00.000Z",
+            "updated_at": "2024-05-29T10:15:00.000Z"
+        },
+        {
+            "review_id": "REV789012",
+            "product_id": "SW789012",
+            "email": "user2@example.com",
+            "rating": 4.0,
+            "review": "example-user-review.",
+            "reviewed_at": "2024-05-27T12:20:00.000Z",
+            "updated_at": "2024-05-28T09:10:00.000Z"
+        },
+    ]
+  }
+}
+```
+
+#### 404 (not found)
+
+```json filename="Response Body"
+{
+  "error": "product not found with this id"
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `product` data
+
+```json filename="Response Body"
+{
+  "error": "Failed to get product by id"
+}
+```
+
+#### 500 (server error - failed)
+
+If something went wrong while get `review` data on `database`
+
+```json filename="Response Body"
+{
+  "error": "Failed to get all reviews by this product id"
+}
+```

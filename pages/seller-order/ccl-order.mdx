@@ -1,0 +1,91 @@
+# Cancel Seller Order
+
+Cancel Order for seller and customer
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+DELETE /api/sellers/current/orders/{order_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`order_id`: string (required)
+
+### Query Param
+
+`product_id`: string (required)
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Successfully Cancel the Order",
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `order` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get the order"
+}
+```
+
+#### 500 (server error - failed)
+
+If something went wrong while deleting data on `database`
+
+```json filename="Response Body"
+{
+  "error": "failed to delete itemr"
+}
+```
+
+#### 500 (server error - failed)
+
+If the `order` status is not `'PENDING'`
+
+```json filename="Response Body"
+{
+  "error": "order status is not 'PENDING'"
+}
+```

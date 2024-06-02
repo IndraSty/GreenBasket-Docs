@@ -1,0 +1,196 @@
+# Manage Seller Address
+
+Managing seller address
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+## Add Addresses
+
+```md filename="Method and Endpoint"
+POST /api/sellers/current/addresses
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Request Body
+```json filename="Request Body"
+{
+	"house_name": "house-name",
+	"street_name": "street-name",
+	"city_name": "city-name",
+	"pin_code": "12345"
+}
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Successfully add seller address"
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error - already added)
+```json filename="Response Body"
+{
+    "error": "seller already has an address"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
+
+## Get Addresses
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/addresses
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Successfully get seller address",
+    "result": {
+        "house_name": "house-name",
+        "street_name": "street-name",
+        "city_name": "city-name",
+        "pin_code": "12345"
+    }
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
+
+## Edit Addresses
+
+```md filename="Method and Endpoint"
+POST /api/sellers/current/addresses
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Successfully update seller address"
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
+
+## Delete Addresses
+
+```md filename="Method and Endpoint"
+DELETE /api/sellers/current/addresses
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Successfully remove seller address"
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```

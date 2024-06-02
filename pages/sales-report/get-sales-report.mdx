@@ -1,0 +1,108 @@
+# Get Sales Report
+
+Fetch Sales Report to see perform of seller store
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/stores/{store_id}/report
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`store_id`: string (required)
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Get Sales Report Successfully",
+  "result": {
+    "store_id": "ST123456",
+    "email": "storeowner@example.com",
+    "total_sales": 5000,
+    "total_income": 125000.0,
+    "products": [
+      {
+        "product_id": "WH123456",
+        "total_sales": 2500,
+        "stock": 150
+      },
+      {
+        "product_id": "SW789012",
+        "total_sales": 1800,
+        "stock": 200
+      },
+      {
+        "product_id": "LS345678",
+        "total_sales": 700,
+        "stock": 50
+      }
+    ]
+  }
+}
+```
+
+#### 404 (not found)
+
+```json filename="Response Body"
+{
+  "error": "this seller has no store"
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `store` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get store by email and id"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `sales_report` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get sales report"
+}
+```

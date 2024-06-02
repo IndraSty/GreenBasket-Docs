@@ -1,0 +1,85 @@
+# Get User by Email
+
+Fetch User data by email
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/users/current
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Fetch Seller Successfully",
+  "data": {
+    "id": "60c72b2f9b1e8b3d4c8d2c6e",
+    "first_name": "example-name",
+    "last_name": "example-name",
+    "email": "john.doe@example.com",
+    "password": "hashedpassword",
+    "image_url": "",
+    "phone": "+1234567890",
+    "refresh_token": "refreshtokenexample",
+    "role": "User",
+    "created_at": "2024-05-25T15:45:12.370Z",
+    "updated_at": "2024-05-30T10:20:30.370Z",
+    "user_id": "USR123456",
+    "email_verified": true,
+    "phone_verified": false,
+    "oauth_id": "",
+    "address": {
+        "house_name": "house-name",
+        "street_name": "street-name",
+        "city_name": "city-name",
+        "pin_code": "12345"
+    }
+  }
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error)
+If something went wrong while fetch `user` data in `database`
+
+```json filename="Response Body"
+{
+  "error": "failed to get user by email"
+}
+```

@@ -1,0 +1,91 @@
+# Update Product Data
+
+Update data product by product id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/stores/{store_id}/product
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`store_id` : string (required)
+
+### Query Param
+
+`product_id` : string (required)
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Update Product successfully",
+}
+```
+
+#### 404 (not found)
+
+If the `store` was not found in database
+
+```json filename="Response Body"
+{
+  "error": "store not found"
+}
+```
+
+#### 404 (not found)
+
+If the `product` was not found in database
+
+```json filename="Response Body"
+{
+  "error": "product not found"
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If `database` get troble while update the `product` data
+
+```json filename="Response Body"
+{
+  "error": "Failed to update the product"
+}
+```

@@ -1,0 +1,92 @@
+# Get All User Review by Email
+
+Fetch all user review by user email
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/reviews
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+
+You will get example responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Get Review By User Email Successfully",
+  "result": [
+    {
+      "review_id": "REV123456",
+      "product_id": "WH123456",
+      "email": "user1@example.com",
+      "rating": 4.5,
+      "review": "Great wireless headphones with excellent sound quality.",
+      "reviewed_at": "2024-05-25T15:45:12.370Z",
+      "updated_at": "2024-05-30T10:20:30.370Z"
+    },
+    {
+      "review_id": "REV789012",
+      "product_id": "SW789012",
+      "email": "user2@example.com",
+      "rating": 4.0,
+      "review": "Smartwatch has good features but the battery life could be better.",
+      "reviewed_at": "2024-05-28T10:30:00.370Z",
+      "updated_at": "2024-05-30T11:00:30.370Z"
+    },
+    {
+      "review_id": "REV345678",
+      "product_id": "LS345678",
+      "email": "user3@example.com",
+      "rating": 5.0,
+      "review": "Laptop stand is sturdy and adjustable, perfect for my needs.",
+      "reviewed_at": "2024-05-29T14:00:00.370Z",
+      "updated_at": "2024-05-30T12:00:30.370Z"
+    }
+  ]
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `review` data
+
+```json filename="Response Body"
+{
+  "error": "Failed to get all reviews by this user email"
+}
+```

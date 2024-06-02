@@ -1,0 +1,84 @@
+# Get User Review by Id
+
+Fetch user review by id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/review/{review_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`review_id`: string (required)
+
+### Responses
+
+You will get example responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Get User Review By Id Successfully",
+  "result": {
+    "review_id": "REV123456",
+    "product_id": "WH123456",
+    "email": "user1@example.com",
+    "rating": 4.5,
+    "review": "Great wireless headphones with excellent sound quality.",
+    "reviewed_at": "2024-05-25T15:45:12.370Z",
+    "updated_at": "2024-05-30T10:20:30.370Z"
+  }
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 404 (not found)
+
+```json filename="Response Body"
+{
+  "error": "review not found with that id"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `review` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get review by email and id"
+}
+```

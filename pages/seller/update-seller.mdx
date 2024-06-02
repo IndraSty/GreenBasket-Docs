@@ -1,0 +1,64 @@
+# Update Data Seller
+
+Updating data seller
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+PATCH /api/sellers/current
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Update seller Successfully",
+    "result": {
+        "UpdateResult": {
+            "MatchedCount": 1,
+            "ModifiedCount": 1,
+            "UpsertedCount": 0,
+            "UpsertedID": null
+        }
+    }
+}
+```
+
+#### 400 (bad request)
+```json filename="Response Body"
+{
+    "error": "Invalid request body: first_name: u does not validate as minstringlength(2)"
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
+

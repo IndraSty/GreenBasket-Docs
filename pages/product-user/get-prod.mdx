@@ -1,0 +1,94 @@
+# Get Product by Id
+
+Fetch data product by product id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/products/{product_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`product_id` : string (required)
+
+### Responses
+
+You will get example responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Fetch product for guest Successfully",
+  "product": {
+    "name": "Wireless Headphones",
+    "description": "High-quality wireless headphones with noise-cancelling features and long battery life.",
+    "price": 99.99,
+    "stock": 150,
+    "average_rating": 4.5,
+    "total_sales": 2500,
+    "product_id": "WH123456",
+    "category": "Electronics",
+    "created_at": "2024-05-30T20:13:21.370Z",
+    "store_name": "TechStore",
+    "city": "San Francisco",
+    "images": [
+      "https://example.com/images/product1.jpg",
+      "https://example.com/images/product2.jpg"
+    ]
+  }
+}
+```
+
+#### 404 (not found)
+
+If the `product` was not found in database
+
+```json filename="Response Body"
+{
+  "error": "product not found"
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `product` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get product by id"
+}
+```

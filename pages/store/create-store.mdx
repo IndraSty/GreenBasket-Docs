@@ -1,0 +1,69 @@
+# Create Seller Store
+
+Create Store data
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+POST /api/sellers/current/stores
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Request Body
+```json filename="Request Body"
+{
+	"Name": "store-name",
+	"Description": "store-desc",
+	"Logo": "logo.png",
+	"Banner": "banner.png"
+}
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Create store data successfully",
+    "result": {
+        "InsertId": "6658dde1f6165e50b056027e"
+    }
+}
+```
+
+#### 400 (bad request)
+if `name` just 1 char
+```json filename="Response Body"
+{
+    "error": "Invalid request bodyname: s does not validate as minstringlength(2)"
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```

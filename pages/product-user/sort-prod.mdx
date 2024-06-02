@@ -1,0 +1,128 @@
+# Get All Product Sorted
+
+Fetch all sorting product data for customer
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/products/sort
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Query Param
+
+`key` : string (required) -> `key` is the `product` name
+
+`page` : string (optional, default 1)
+
+### Sorting Query Param
+
+`price` : string (optional) 
+
+`stock` : string (optional)
+
+`created_at` : string (optional)
+
+`total_sales` : string (optional)
+
+`average_rating` : string (optional)
+
+### Responses
+
+You will get responses like this:
+
+#### Pagination
+
+- `page` : The current page
+- `total_item` : Total item in the page
+- `last_page` : Number of the last page of pagination
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Sort product for Cust Successfully",
+  "result": {
+    "products": [
+      {
+        "name": "example-product-name",
+        "description": "example-product-desc",
+        "price": 99.99,
+        "stock": 150,
+        "average_rating": 4.5,
+        "total_sales": 2500,
+        "product_id": "WH123456",
+        "category": "Electronics",
+        "created_at": "2024-05-30T20:13:21.370Z",
+        "store_name": "TechStore",
+        "city": "San Francisco",
+        "images": [
+          "https://example.com/images/product1.jpg",
+          "https://example.com/images/product2.jpg"
+        ]
+      },
+      {
+        "name": "example-product-name",
+        "description": "example-product-desc",
+        "price": 149.99,
+        "stock": 200,
+        "average_rating": 4.7,
+        "total_sales": 1800,
+        "product_id": "SW789012",
+        "category": "Wearables",
+        "created_at": "2024-05-25T15:45:12.370Z",
+        "store_name": "GadgetHub",
+        "city": "New York",
+        "images": [
+          "https://example.com/images/product3.jpg",
+          "https://example.com/images/product4.jpg"
+        ]
+      }
+    ],
+    "page": 1,
+    "total_item": 2,
+    "last_page": 1
+  }
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get sorted `products` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get all sorted products"
+}
+```

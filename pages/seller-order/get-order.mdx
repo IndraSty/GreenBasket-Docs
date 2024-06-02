@@ -1,0 +1,132 @@
+# Get Seller Order
+
+Fetch Seller Order data
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/sellers/current/orders/{order_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`order_id`: string (required)
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Successfully Fetch the Order",
+  "result": {
+    "id": "60c72b2f9b1e8b3d4c8d2c6e",
+    "order_id": "ORD123456789",
+    "email": "seller@example.com",
+    "ordered_at": "2024-05-25T15:45:12.370Z",
+    "updated_at": "2024-05-30T10:20:30.370Z",
+    "total_price": 199.98,
+    "payment_status": "Paid",
+    "items": [
+      {
+        "user_email": "buyer1@example.com",
+        "product_id": "WH123456",
+        "product_name": "Wireless Headphones",
+        "product_image": [
+          "https://example.com/images/product1.jpg",
+          "https://example.com/images/product2.jpg"
+        ],
+        "quantity": 1,
+        "price": 99.99,
+        "status": "Shipped",
+        "address_shipping": {
+          "house_name": "house-name",
+          "street_name": "street-name",
+          "city_name": "city-name",
+          "pin_code": "12345"
+        }
+      },
+      {
+        "user_email": "buyer2@example.com",
+        "product_id": "SW789012",
+        "product_name": "Smartwatch",
+        "product_image": [
+          "https://example.com/images/product3.jpg",
+          "https://example.com/images/product4.jpg"
+        ],
+        "quantity": 1,
+        "price": 99.99,
+        "status": "Processing",
+        "address_shipping": {
+          "house_name": "house-name",
+          "street_name": "street-name",
+          "city_name": "city-name",
+          "pin_code": "12345"
+        }
+      }
+    ]
+  }
+}
+```
+
+#### 404 (not found)
+
+```json filename="Response Body"
+{
+  "error": "no order found"
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `seller` data
+
+```json filename="Response Body"
+{
+  "error": "failed to find seller"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `order` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get the order"
+}
+```

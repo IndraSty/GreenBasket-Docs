@@ -1,0 +1,131 @@
+# Get Order Data by Id
+
+Fetch Order data customer by order id
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+GET /api/users/current/order/{order_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`order_id`: string (required)
+
+### Responses
+
+You will get example responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Successfully Fetch the Order",
+  "result": {
+    "id": "60c72b2f9b1e8b3d4c8d2c6e",
+    "order_id": "ORD123456789",
+    "email": "customer@example.com",
+    "order_date": "2024-05-25T15:45:12.370Z",
+    "updated_at": "2024-05-30T10:20:30.370Z",
+    "total_price": 199.98,
+    "address_shipping": {
+      "street": "123 Elm Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "postal_code": "94101",
+      "country": "USA"
+    },
+    "payment": {
+      "status": "Paid",
+      "transaction_id": "TX123456789",
+      "payment_method": "Credit Card"
+    },
+    "items": [
+      {
+        "product_id": "WH123456",
+        "product_name": "Wireless Headphones",
+        "product_image": [
+          "https://example.com/images/product1.jpg",
+          "https://example.com/images/product2.jpg"
+        ],
+        "store_id": "ST123456",
+        "order_status": "Shipped",
+        "quantity": 1,
+        "price": 99.99
+      },
+      {
+        "product_id": "SW789012",
+        "product_name": "Smartwatch",
+        "product_image": [
+          "https://example.com/images/product3.jpg",
+          "https://example.com/images/product4.jpg"
+        ],
+        "store_id": "ST123456",
+        "order_status": "Processing",
+        "quantity": 1,
+        "price": 99.99
+      }
+    ]
+  }
+}
+```
+
+#### 404 (not found)
+
+```json filename="Response Body"
+{
+  "error": "no order found"
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `user` data
+
+```json filename="Response Body"
+{
+  "error": "failed to find user"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `order` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get the order"
+}
+```

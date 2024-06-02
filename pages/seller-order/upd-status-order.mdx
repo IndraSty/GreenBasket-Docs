@@ -1,0 +1,111 @@
+# Update Status Seller Order
+
+Update status Order for seller and customer
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+PATCH /api/sellers/current/orders/{order_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`order_id`: string (required)
+
+### Query Param
+
+`product_id`: string (required)
+
+### Responses
+
+You will get responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Successfully Update the Order Status",
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `seller` data
+
+```json filename="Response Body"
+{
+  "error": "failed to find seller"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the customer `order` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get the user order"
+}
+```
+
+#### 500 (server error - failed)
+
+If the `customer` had not made `payment` yet
+
+```json filename="Response Body"
+{
+  "error": "this order has not yet made payment"
+}
+```
+
+#### 500 (server error - failed)
+
+If something went wrong while updating status order `seller` on `database`
+
+```json filename="Response Body"
+{
+  "error": "failed to update the status seller order"
+}
+```
+
+#### 500 (server error - failed)
+
+If something went wrong while updating status order `customer` on `database`
+
+```json filename="Response Body"
+{
+  "error": "failed to update the status user order"
+}
+```
