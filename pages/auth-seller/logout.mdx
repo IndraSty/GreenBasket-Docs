@@ -1,0 +1,48 @@
+# Logout Seller
+
+Delete refresh token seller from cookies
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+DELETE /api/sellers/current
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Responses
+You will get responses like this:
+
+#### 200 (success)
+```json filename="Response Body"
+{
+    "message": "Ok"
+}
+```
+
+#### 401 (unauthorized)
+```json filename="Response Body"
+{
+    "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+```json filename="Response Body"
+{
+    "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+```json filename="Response Body"
+{
+    "error": "Internal server error"
+}
+```
