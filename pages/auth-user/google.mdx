@@ -1,0 +1,23 @@
+# Login With Google
+
+Login using your google account
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+DELETE /api/auth/{provider}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+### Route Param
+
+`provider` : string (required, `google`)
+
+### Responses
+You will redirect to google sign in, and then You can choose Your google account to login/signup
