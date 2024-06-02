@@ -1,0 +1,90 @@
+# Cancel Order
+
+Cancel Order whhile product is still Pending
+
+### Endpoint
+
+```md filename="Base URL"
+http://localhost:8080
+```
+
+```md filename="Method and Endpoint"
+POST /api/users/current/order/{order_id}
+```
+
+```md filename="Headers"
+Authorization: Bearer access_token
+```
+
+### Route Param
+
+`order_id`: string (required)
+
+### Query Param
+
+`product_id`: string (required)
+
+### Responses
+
+You will get example responses like this:
+
+#### 200 (success)
+
+```json filename="Response Body"
+{
+  "message": "Successfully Cancel the Order",
+}
+```
+
+#### 400 (bad request)
+
+```json filename="Response Body"
+{
+  "error": "order status request is not 'FINISHED'"
+}
+```
+
+#### 401 (unauthorized)
+
+```json filename="Response Body"
+{
+  "error": "Invalid authorization header"
+}
+```
+
+#### 401 (unauthorized - expire token)
+
+```json filename="Response Body"
+{
+  "error": "token is expired: token is expired by 2m19s"
+}
+```
+
+#### 500 (server error)
+
+```json filename="Response Body"
+{
+  "error": "Internal server error"
+}
+```
+
+#### 500 (server error - failed)
+
+If query to `database` get troble while get the `order` data
+
+```json filename="Response Body"
+{
+  "error": "failed to get the order"
+}
+```
+
+#### 500 (server error - failed)
+
+If the order status is not `'PENDING'`. So will make an error
+
+```json filename="Response Body"
+{
+  "error": "order status is not 'PENDING'"
+}
+```
+
