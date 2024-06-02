@@ -3,6 +3,6 @@
     "fb": "Login With Facebook",
     "register": "Register User",
     "login": "Login With Email & Password",
-    "verif-email": "Email Verification",
+    "verify-otp": "OTP Verification",
     "logout": "Logout"
 }
