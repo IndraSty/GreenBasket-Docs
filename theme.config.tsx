@@ -7,7 +7,7 @@ const year = new Date().getFullYear();
 const config: DocsThemeConfig = {
   logo: <strong>GreenBasket</strong>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/IndraSty/GreenBasket',
   },
   sidebar: {
     titleComponent({ title, type }) {
@@ -17,7 +17,6 @@ const config: DocsThemeConfig = {
       return <>{title}</>;
     },
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
     text: `GreenBasket ${year} © IndraSty`,
   },
