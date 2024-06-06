@@ -1,7 +1,6 @@
 {
-  "name": "nextra-docs-template",
+  "name": "docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,10 +12,6 @@
   },
   "author": "Shu Ding <g@shud.in>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
-  },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
     "next": "^13.0.6",
     "nextra": "latest",
@@ -26,6 +21,8 @@
   },
   "devDependencies": {
     "@types/node": "18.11.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "typescript": "^4.9.3"
   }
 }
